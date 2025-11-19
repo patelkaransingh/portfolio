@@ -3,6 +3,7 @@ import React from "react";
 import ProfilePhoto from "@/assets/profile-photo.webp";
 import { PiArrowUpRightBold } from "react-icons/pi";
 import { FiDownload } from "react-icons/fi";
+import { SiLinkedin } from "react-icons/si";
 
 const Header = () => {
   const getExperience = () => {
@@ -49,7 +50,8 @@ const Header = () => {
             href="#contact"
             className="px-4 py-1 border border-gray-500 rounded-full bg-black text-white flex items-center gap-2"
           >
-            Contact Me <PiArrowUpRightBold className="h-4 " />
+            <SiLinkedin className="h4" /> Connect
+            <PiArrowUpRightBold className="h-4 " />
           </a>
           <a
             href="/resume.pdf"

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Photo from "@/assets/photo.jpg";
+import { info } from "@/assets/data";
 import { HiCodeBracket } from "react-icons/hi2";
 import { PiGraduationCapLight } from "react-icons/pi";
 import { PiSquaresFourLight } from "react-icons/pi";
@@ -24,50 +25,21 @@ function About() {
           </p>
 
           <ul className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
-            <a
-              className="border-[0.5px] border-gray-400 rounded-xl cursor-pointer p-3 md:p-6 hover:bg-(--lightHover) hover:-translate-y-1 duration-500 hover:shadow-black"
-              href="#skills"
-            >
-              <li>
-                <HiCodeBracket className="text-2xl md:text-3xl" />
-                <h3 className="my-2 md:my-4 font-semibold text-gray-700">
-                  Core Skills
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Java · Springboot · Microservices · JWT · JPA/Hibernate · SQL
-                </p>
-              </li>
-            </a>
-
-            <a
-              className="border-[0.5px] border-gray-400 rounded-xl cursor-pointer p-3 md:p-6 hover:bg-(--lightHover) hover:-translate-y-1 duration-500 hover:shadow-black"
-              href="#edication"
-            >
-              <li>
-                <PiGraduationCapLight className="text-2xl md:text-3xl" />
-                <h3 className="my-2 md:my-4 font-semibold text-gray-700">
-                  Education
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  B.Tech in Computer Science
-                </p>
-              </li>
-            </a>
-
-            <a
-              className="border-[0.5px] border-gray-400 rounded-xl cursor-pointer p-3 md:p-6 hover:bg-(--lightHover) hover:-translate-y-1 duration-500 hover:shadow-black"
-              href="#projects"
-            >
-              <li>
-                <PiSquaresFourLight className="text-2xl md:text-3xl" />
-                <h3 className="my-2 md:my-4 font-semibold text-gray-700">
-                  Projects
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Worked on 3 large-scale projects: Financial, BOM, and Retail.
-                </p>
-              </li>
-            </a>
+            {info.map((info, index) => (
+              <a
+                key={index}
+                className="border-[0.5px] border-gray-400 rounded-xl cursor-pointer p-3 md:p-6 hover:bg-(--lightHover) hover:-translate-y-1 duration-500 hover:shadow-black"
+                href={info.link}
+              >
+                <li>
+                  <div className="text-2xl md:text-3xl">{info.icon}</div>
+                  <h3 className="my-2 md:my-4 font-semibold text-gray-700">
+                    {info.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm">{info.description}</p>
+                </li>
+              </a>
+            ))}
           </ul>
         </div>
       </div>
