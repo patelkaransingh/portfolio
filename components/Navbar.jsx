@@ -2,10 +2,10 @@ import Image from "next/image";
 import React, { useRef, useState, useEffect } from "react";
 import Logo from "@/assets/logo.svg";
 import headerBackground from "@/assets/header-bg-color.png";
-import { PiArrowUpRightBold } from "react-icons/pi";
-import { PiMoonLight } from "react-icons/pi";
+import { PiArrowUpRightBold, PiMoonLight } from "react-icons/pi";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { GrClose } from "react-icons/gr";
+import { SiLinkedin } from "react-icons/si";
 
 const Navbar = () => {
   const sideMenuRef = useRef();
@@ -64,8 +64,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a className="font-ovo" href="#contact">
-              Contact me
+            <a className="font-ovo" href="#skills">
+              Skills
             </a>
           </li>
         </ul>
@@ -75,10 +75,10 @@ const Navbar = () => {
           </button>
 
           <a
-            href="#contact"
+            href="https://www.linkedin.com/in/ln-karan-patel/"
             className="hidden lg:flex items-center gap-1 px-4 py-1 border border-gray-500 rounded-full text-base"
           >
-            Contact <PiArrowUpRightBold className="h-4 " />
+            <SiLinkedin /> Connect <PiArrowUpRightBold className="h-4 " />
           </a>
 
           <button className="block text-3xl md:hidden ml-3" onClick={openMenu}>
@@ -111,8 +111,8 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a className="font-ovo" onClick={closeMenu} href="#contact">
-              Contact me
+            <a className="font-ovo" onClick={closeMenu} href="#skills">
+              Skills
             </a>
           </li>
         </ul>

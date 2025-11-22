@@ -19,7 +19,7 @@ function Experience() {
             className="flex flex-col lg:flex-row items-center gap-6 mt-10"
           >
             {/* Image on the left */}
-            <div className="w-auto h-auto lg:w-1/3 flex justify-center">
+            <div className="w-[60vw] md:w-[50vw] lg:w-[40vw] flex justify-center">
               <Image
                 className="rounded-3xl"
                 src={project.image}

@@ -35,7 +35,7 @@ export const info = [
   {
     icon: <PiGraduationCapLight />,
     title: "Education",
-    description: "B.Tech in Computer Science",
+    description: "B.Tech in Computer Science from BBDNITM, Lucknow.",
     link: "#education",
   },
 ];
