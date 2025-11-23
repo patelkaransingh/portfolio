@@ -1,14 +1,22 @@
 import Java from "@/assets/icons/java.svg";
+import JavaDark from "@/assets/icons/java-dark.svg";
 import SpringBoot from "@/assets/icons/spring-boot.svg";
 import MicroServices from "@/assets/icons/micro-services.svg";
+import MicroServicesDark from "@/assets/icons/micro-services-dark.svg";
 import Jwt from "@/assets/icons/jwt.svg";
 import Hibernate from "@/assets/icons/hibernate.svg";
+import HibernateDark from "@/assets/icons/hibernate-dark.svg";
 import AWS from "@/assets/icons/aws.svg";
+import AWSDark from "@/assets/icons/aws-dark.svg";
 import Git from "@/assets/icons/git.svg";
 import CircleCi from "@/assets/icons/circle-ci.svg";
+import CircleCiDark from "@/assets/icons/circle-ci-dark.svg";
 import React from "@/assets/icons/react.svg";
+import ReactDark from "@/assets/icons/react-dark.svg";
 import Tailwind from "@/assets/icons/tailwind.svg";
+import TailwindDark from "@/assets/icons/tailwind-dark.svg";
 import MySQL from "@/assets/icons/my-sql.svg";
+import MySQLDark from "@/assets/icons/my-sql-dark.svg";
 import Figma from "@/assets/icons/figma.svg";
 import Finance from "@/assets/finance.jpg";
 import BOM from "@/assets/bom.jpg";
@@ -41,18 +49,18 @@ export const info = [
 ];
 
 export const skills = [
-  { name: "Java", icon: Java },
-  { name: "Spring-boot", icon: SpringBoot },
-  { name: "Microservice", icon: MicroServices },
-  { name: "Jwt", icon: Jwt },
-  { name: "Hibernate", icon: Hibernate },
-  { name: "MySQL", icon: MySQL },
-  { name: "AWS", icon: AWS },
-  { name: "Git", icon: Git },
-  { name: "Circle Ci", icon: CircleCi },
-  { name: "React", icon: React },
-  { name: "Tailwind", icon: Tailwind },
-  { name: "Figma", icon: Figma },
+  { name: "Java", icon: Java, iconDark: JavaDark },
+  { name: "Spring-boot", icon: SpringBoot, iconDark: SpringBoot },
+  { name: "Microservice", icon: MicroServices, iconDark: MicroServicesDark },
+  { name: "Jwt", icon: Jwt, iconDark: Jwt },
+  { name: "Hibernate", icon: Hibernate, iconDark: HibernateDark },
+  { name: "MySQL", icon: MySQL, iconDark: MySQLDark },
+  { name: "AWS", icon: AWS, iconDark: AWSDark },
+  { name: "Git", icon: Git, iconDark: Git },
+  { name: "Circle Ci", icon: CircleCi, iconDark: CircleCiDark },
+  { name: "React", icon: React, iconDark: ReactDark },
+  { name: "Tailwind", icon: Tailwind, iconDark: TailwindDark },
+  { name: "Figma", icon: Figma, iconDark: Figma },
 ];
 
 export const projects = [

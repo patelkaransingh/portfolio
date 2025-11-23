@@ -1,8 +1,11 @@
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { ThemeContext } from "@/components/ThemeProvider";
 import Image from "next/image";
-import React from "react";
 import { projects } from "@/assets/data";
 
 function Experience() {
+  const { isDark, setIsDark } = useContext(ThemeContext);
+
   return (
     <div
       id="projects"
@@ -21,7 +24,9 @@ function Experience() {
             {/* Image on the left */}
             <div className="w-[60vw] md:w-[50vw] lg:w-[40vw] flex justify-center">
               <Image
-                className="rounded-3xl"
+                className={`rounded-3xl
+                  ${isDark ? "opacity-82" : ""}
+                `}
                 src={project.image}
                 alt={project.name}
                 layout="responsive"
@@ -30,20 +35,41 @@ function Experience() {
 
             {/* Data on the right */}
             <div className="flex flex-col w-full">
-              <h3 className="text-2xl md:text-xl font-medium text-gray-800">
+              <h3
+                className={`text-2xl md:text-xl font-medium
+                ${isDark ? "text-white" : "text-gray-800"}  
+              `}
+              >
                 {project.name}
               </h3>
-              <p className="text-lg text-gray-600 mt-2">
+              <p
+                className={`text-lg mt-2
+                ${isDark ? "text-white/90" : "text-gray-600"}
+              `}
+              >
                 {project.role} {project.duration}
               </p>
-              <p className="text-gray-700 mt-4">{project.description}</p>
+              <p className={`mt-4 ${isDark ? "text-white" : "text-gray-700"}`}>
+                {project.description}
+              </p>
 
-              <h4 className="mt-4 font-semibold text-lg">Tech Stack:</h4>
+              <h4
+                className={`mt-4 font-semibold text-lg ${
+                  isDark ? "text-white/80" : "text-gray-700"
+                }`}
+              >
+                Tech Stack:
+              </h4>
               <ul className="flex flex-wrap gap-4 mt-2">
                 {project.techStack.map((tech, idx) => (
                   <li
                     key={idx}
-                    className="bg-gray-200 px-3 py-1 rounded-lg text-sm text-gray-700"
+                    className={`px-3 py-1 rounded-lg text-sm
+                      ${
+                        isDark
+                          ? "bg-white/15 text-white"
+                          : "bg-gray-200 text-gray-700"
+                      }`}
                   >
                     {tech}
                   </li>

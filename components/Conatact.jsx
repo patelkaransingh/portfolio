@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { ThemeContext } from "@/components/ThemeProvider";
 import FooterBacground from "@/assets/footer-bg-color.png";
 import { SiLinkedin } from "react-icons/si";
 import { ImMail3 } from "react-icons/im";
 import { FiCheckCircle } from "react-icons/fi";
+import { PiArrowUpRightBold } from "react-icons/pi";
 
 const Conatact = () => {
+  const { isDark, setIsDark } = useContext(ThemeContext);
+
   const [toast, setToast] = useState(false);
 
   const copyEmail = () => {
@@ -22,12 +26,14 @@ const Conatact = () => {
       flex flex-col justify-center 
       min-h-[calc(100vh-230px)] md:min-h-[calc(100vh-230px)]
       bg-no-repeat bg-center bg-[lenght:90%_auto]`}
-      style={{ backgroundImage: `url(${FooterBacground.src})` }}
+      style={{
+        backgroundImage: isDark ? "none" : `url(${FooterBacground.src})`,
+      }}
     >
       <div className="flex flex-col items-center justify-center -translate-y-16">
         <div className="text-center">
           <h2 className="text-3xl md:text-5xl font-ovo">Get in touch!</h2>
-          <h4 className="text-lg my-2">
+          <h4 className={`text-lg my-2 ${isDark ? "text-white/85" : ""}`}>
             I'd love to hear from you! If you have any questions, comments and
             feedback, <br /> please let me know via -
           </h4>
@@ -36,7 +42,9 @@ const Conatact = () => {
         <div className="relative flex flex-col md:flex-row justify-center gap-4 mt-4">
           <button
             onClick={copyEmail}
-            className="flex items-center gap-2 text-lg hover:underline cursor-pointer px-4 py-1 border border-gray-500 rounded-full"
+            className={`flex items-center gap-2
+              text-lg hover:underline cursor-pointer
+              px-4 py-1 border border-gray-500 rounded-full`}
           >
             <ImMail3 className="text-lg" />
             karanpatel525864@gmail.com
@@ -49,12 +57,14 @@ const Conatact = () => {
           >
             <SiLinkedin className="text-lg" />
             LinkedIn
+            <PiArrowUpRightBold className="text-xl" />
           </a>
           {toast && (
             <div
               className={`
                     absolute top-full left-1/2 -translate-x-1/2
-                    flex items-center gap-1 text-sm text-gray-700
+                    flex items-center gap-1 text-sm
+                    ${isDark ? "text-white/80" : "text-gray-700"}
                     mt-2 px-3 py-1
                     animate-toast
                 `}

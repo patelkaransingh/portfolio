@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { ThemeContext } from "@/components/ThemeProvider";
 import { skills } from "@/assets/data";
 import Image from "next/image";
 function Skills() {
+  const { isDark, setIsDark } = useContext(ThemeContext);
+
   return (
     <div
       id="skills"
@@ -19,9 +22,16 @@ function Skills() {
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex flex-col items-center py-3 md:py-5 lg:py-8 rounded-md md:rounded-2xl bg-gray-50/90 backdrop-blur-lg shadow-sm"
+            className={`flex flex-col items-center py-3 md:py-5 lg:py-8 
+              rounded-md md:rounded-2xl backdrop-blur-lg shadow-sm
+              ${isDark ? "bg-(--darkHover)/30" : "bg-gray-50/90"}
+            `}
           >
-            <Image src={skill.icon} alt={skill.name} className="w-12 h-12" />
+            <Image
+              src={isDark ? skill.iconDark : skill.icon}
+              alt={skill.name}
+              className="w-12 h-12"
+            />
             <p className="text-sm font-medium">{skill.name}</p>
           </div>
         ))}

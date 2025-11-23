@@ -96,7 +96,7 @@ const Navbar = () => {
         </ul>
         <div className="flex items-center gap-5 text-2xl">
           <button
-            className={`text-xl cursor-pointer`}
+            className={`text-2xl lg:text-xl cursor-pointer`}
             onClick={() => setIsDark(!isDark)}
           >
             {isDark ? <PiSunLight /> : <PiMoonLight />}
@@ -104,12 +104,18 @@ const Navbar = () => {
 
           <a
             href="https://www.linkedin.com/in/ln-karan-patel/"
-            className="hidden lg:flex items-center gap-1 px-4 py-1 border border-gray-500 rounded-full text-base"
+            className={`hidden lg:flex items-center gap-1 px-4 py-1.25
+              border border-gray-500 rounded-full text-base
+                ${isDark ? " border border-white/40" : ""}
+              `}
           >
             <SiLinkedin /> Connect <PiArrowUpRightBold className="h-4 " />
           </a>
 
-          <button className="block text-3xl md:hidden ml-3" onClick={openMenu}>
+          <button
+            className="block text-3xl md:hidden ml-3 cursor-pointer"
+            onClick={openMenu}
+          >
             <CgMenuRightAlt />
           </button>
         </div>
@@ -117,7 +123,11 @@ const Navbar = () => {
         {/* ------------------- mobile menu ------------------- */}
         <ul
           ref={sideMenuRef}
-          className="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500"
+          className={`flex md:hidden flex-col gap-4 py-20 px-10
+            fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen 
+            transition duration-500
+              ${isDark ? "bg-(--darkHover)" : "bg-rose-50"}
+            `}
         >
           <div className="absolute right-6 top-6" onClick={closeMenu}>
             <GrClose className="cursor-pointer text-2xl" />

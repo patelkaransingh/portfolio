@@ -1,10 +1,13 @@
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { ThemeContext } from "@/components/ThemeProvider";
 import Image from "next/image";
-import React from "react";
 import ProfilePhoto from "@/assets/profile-photo.webp";
 import { FiDownload } from "react-icons/fi";
 import { IoInformationCircleOutline } from "react-icons/io5";
 
 const Header = () => {
+  const { isDark, setIsDark } = useContext(ThemeContext);
+
   const getExperience = () => {
     const start = new Date("2020-10-01");
     const now = new Date();
@@ -38,7 +41,7 @@ const Header = () => {
           Hi! I'm Karan Patel 👋🏻
         </h3>
         <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-[44px] font-ovo">
-          Bakend Developer
+          Backend Developer
         </h1>
         <p className="max-w-2xl mx-auto font-ovo">
           I'm a Java backend developer with {getExperience()} years of
@@ -47,7 +50,14 @@ const Header = () => {
         <div className="flex justify-center gap-4 mt-4">
           <a
             href="#contact"
-            className="px-4 py-1 border border-gray-500 rounded-full bg-black text-white flex items-center gap-2"
+            className={`flex items-center gap-2 px-4 py-1
+              border rounded-full
+                ${
+                  isDark
+                    ? "bg-white/20 border-white/50"
+                    : "bg-black text-white border-gray-500"
+                }
+              `}
           >
             Connect Info
             <IoInformationCircleOutline className="text-xl " />
@@ -55,7 +65,10 @@ const Header = () => {
           <a
             href="/resume.pdf"
             download
-            className="px-4 py-1 border border-gray-500 rounded-full flex items-center gap-2"
+            className={`flex items-center gap-2 px-4 py-1 
+              border rounded-full
+                ${isDark ? "border-white/50" : "border-gray-500"}
+              `}
           >
             Download CV <FiDownload className="h-4 " />
           </a>
