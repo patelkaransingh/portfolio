@@ -104,6 +104,7 @@ const Navbar = () => {
 
           <a
             href="https://www.linkedin.com/in/ln-karan-patel/"
+            target="_blank"
             className={`hidden lg:flex items-center gap-1 px-4 py-1.25
               border border-gray-500 rounded-full text-base
                 ${isDark ? " border border-white/40" : ""}
@@ -151,6 +152,11 @@ const Navbar = () => {
           <li>
             <a className="font-ovo" onClick={closeMenu} href="#skills">
               Skills
+            </a>
+          </li>
+          <li>
+            <a className="font-ovo" onClick={closeMenu} href="#contact">
+              Contact info
             </a>
           </li>
         </ul>

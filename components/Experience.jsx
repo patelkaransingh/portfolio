@@ -47,7 +47,7 @@ function Experience() {
                 ${isDark ? "text-white/90" : "text-gray-600"}
               `}
               >
-                {project.role} {project.duration}
+                {project.duration}
               </p>
               <p className={`mt-4 ${isDark ? "text-white" : "text-gray-700"}`}>
                 {project.description}
