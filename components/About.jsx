@@ -2,9 +2,6 @@ import Image from "next/image";
 import React from "react";
 import Photo from "@/assets/photo.jpg";
 import { info } from "@/assets/data";
-import { HiCodeBracket } from "react-icons/hi2";
-import { PiGraduationCapLight } from "react-icons/pi";
-import { PiSquaresFourLight } from "react-icons/pi";
 
 function About() {
   return (

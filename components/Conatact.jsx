@@ -18,10 +18,10 @@ const Conatact = () => {
   return (
     <div
       id="contact"
-      className="w-full px-[12%] py-10 scroll-mt-20 
+      className={`w-full px-[12%] py-10 scroll-mt-20 
       flex flex-col justify-center 
       min-h-[calc(100vh-230px)] md:min-h-[calc(100vh-230px)]
-      bg-no-repeat bg-center bg-[lenght:90%_auto]"
+      bg-no-repeat bg-center bg-[lenght:90%_auto]`}
       style={{ backgroundImage: `url(${FooterBacground.src})` }}
     >
       <div className="flex flex-col items-center justify-center -translate-y-16">

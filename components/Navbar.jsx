@@ -1,13 +1,16 @@
+import React, { useRef, useState, useEffect, useContext } from "react";
+import { ThemeContext } from "@/components/ThemeProvider";
 import Image from "next/image";
-import React, { useRef, useState, useEffect } from "react";
-import Logo from "@/assets/logo.svg";
 import headerBackground from "@/assets/header-bg-color.png";
-import { PiArrowUpRightBold, PiMoonLight } from "react-icons/pi";
+import { PiArrowUpRightBold, PiMoonLight, PiSunLight } from "react-icons/pi";
+import Logo from "@/assets/logo.svg";
+import LogoDark from "@/assets/logo-dark.svg";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { GrClose } from "react-icons/gr";
 import { SiLinkedin } from "react-icons/si";
 
 const Navbar = () => {
+  const { isDark, setIsDark } = useContext(ThemeContext);
   const sideMenuRef = useRef();
   const [isScroll, setScroll] = useState(false);
 
@@ -35,18 +38,40 @@ const Navbar = () => {
         <Image src={headerBackground} className="w-full" alt="" />
       </div>
       <nav
-        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${
-          isScroll ? "bg-white/50 backdrop-blur-lg shadow-sm" : ""
-        }`}
+        className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4
+          flex items-center justify-between z-50 
+            ${
+              isScroll
+                ? isDark
+                  ? "bg-black/50 backdrop-blur-lg shadow-sm"
+                  : "bg-white/50 backdrop-blur-lg shadow-sm"
+                : isDark
+                ? "bg-(--darkTheme)"
+                : ""
+            }
+          `}
       >
         <a href="#top">
-          <Image src={Logo} className="w-24 cursor-pointer mr-14" alt="" />
+          <Image
+            src={isDark ? LogoDark : Logo}
+            className="w-24 cursor-pointer mr-14"
+            alt=""
+          />
         </a>
 
         <ul
-          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
-            isScroll ? "" : "bg-white/10 shadow-sm"
-          }`}
+          className={`hidden md:flex items-center gap-6 lg:gap-8
+            rounded-full px-12 py-3
+              ${
+                isScroll
+                  ? isDark
+                    ? "border-none bg-transparent"
+                    : ""
+                  : isDark
+                  ? "border border-white/30 bg-transparent"
+                  : "bg-white/10 shadow-sm"
+              }
+            `}
         >
           <li>
             <a className="font-ovo" href="#top">
@@ -70,8 +95,11 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="flex items-center gap-5 text-2xl">
-          <button>
-            <PiMoonLight className="text-xl" />
+          <button
+            className={`text-xl cursor-pointer`}
+            onClick={() => setIsDark(!isDark)}
+          >
+            {isDark ? <PiSunLight /> : <PiMoonLight />}
           </button>
 
           <a

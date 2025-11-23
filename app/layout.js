@@ -1,5 +1,6 @@
-import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
+import { Outfit, Ovo } from "next/font/google";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${outfit.className} ${ovo.className} antialiased`}>
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

@@ -8,8 +8,8 @@ function Footer() {
   return (
     <div className="w-full px-[12%] py-10 scroll-mt-20 text-gray-700">
       <div
-        className="flex flex-col sm:flex-row items-center justify-between
-                        border-t border-gray-400 py-2"
+        className={`flex flex-col sm:flex-row items-center justify-between
+                        border-t border-gray-400 py-2`}
       >
         <p>Portfolio © {new Date().getFullYear()}</p>
 

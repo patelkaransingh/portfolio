@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import ProfilePhoto from "@/assets/profile-photo.webp";
-import { PiArrowUpRightBold } from "react-icons/pi";
 import { FiDownload } from "react-icons/fi";
 import { IoInformationCircleOutline } from "react-icons/io5";
 
@@ -48,10 +47,7 @@ const Header = () => {
         <div className="flex justify-center gap-4 mt-4">
           <a
             href="#contact"
-            className="px-4 py-1 
-            border border-gray-500 rounded-full 
-            bg-black text-white 
-            flex items-center gap-2"
+            className="px-4 py-1 border border-gray-500 rounded-full bg-black text-white flex items-center gap-2"
           >
             Connect Info
             <IoInformationCircleOutline className="text-xl " />
