@@ -58,7 +58,7 @@ export const skills = [
   { name: "AWS", icon: AWS, iconDark: AWSDark },
   { name: "Git", icon: Git, iconDark: Git },
   { name: "Circle Ci", icon: CircleCi, iconDark: CircleCiDark },
-  { name: "React", icon: React, iconDark: ReactDark },
+  { name: "React.JS", icon: React, iconDark: ReactDark },
   { name: "Tailwind", icon: Tailwind, iconDark: TailwindDark },
   { name: "Figma", icon: Figma, iconDark: Figma },
 ];

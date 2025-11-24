@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import { ThemeContext } from "@/components/ThemeProvider";
 import { BiCoffeeTogo } from "react-icons/bi";
-import { TbBrandNextjs, TbBrandReact } from "react-icons/tb";
+import { TbBrandNextjs } from "react-icons/tb";
 import { SiTailwindcss } from "react-icons/si";
 import { RiJavascriptFill } from "react-icons/ri";
 
@@ -30,9 +30,6 @@ function Footer() {
           <li>+</li>
           <li>
             <TbBrandNextjs />
-          </li>
-          <li>
-            <TbBrandReact />
           </li>
           <li>
             <RiJavascriptFill />
