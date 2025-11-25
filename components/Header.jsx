@@ -28,7 +28,10 @@ const Header = () => {
   };
 
   return (
-    <div className="max-w-3xl text-center mx-auto h-screen flex flex-col md:flex-row items-center gap-4 md:gap-20 justify-center">
+    <div
+      id="home"
+      className="max-w-3xl text-center mx-auto h-screen flex flex-col md:flex-row items-center gap-4 md:gap-20 justify-center"
+    >
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}

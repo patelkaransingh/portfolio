@@ -174,7 +174,7 @@ const Navbar = () => {
           </div>
 
           <li>
-            <a className="font-ovo" onClick={closeMenu} href="#top">
+            <a className="font-ovo" onClick={closeMenu} href="#home">
               Home
             </a>
           </li>
