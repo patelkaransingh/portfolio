@@ -8,6 +8,7 @@ import LogoDark from "@/assets/logo-dark.svg";
 import { CgMenuRightAlt } from "react-icons/cg";
 import { GrClose } from "react-icons/gr";
 import { SiLinkedin } from "react-icons/si";
+import { motion, AnimatePresence } from "motion/react";
 
 const Navbar = () => {
   const { isDark, setIsDark } = useContext(ThemeContext);
@@ -51,74 +52,112 @@ const Navbar = () => {
             }
           `}
       >
-        <a href="#top">
+        <motion.a
+          href="#home"
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
           <Image
             src={isDark ? LogoDark : Logo}
             className="w-24 cursor-pointer mr-14"
             alt=""
           />
-        </a>
+        </motion.a>
 
-        <ul
+        <motion.ul
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: {
+              transition: { staggerChildren: 0.12, delayChildren: 0.25 },
+            },
+          }}
           className={`hidden md:flex items-center gap-6 lg:gap-8
-            rounded-full px-12 py-3
-              ${
-                isScroll
-                  ? isDark
-                    ? "border-none bg-transparent"
-                    : ""
-                  : isDark
-                  ? "border border-white/30 bg-transparent"
-                  : "bg-white/10 shadow-sm"
-              }
+                      rounded-full px-12 py-3
+                      ${
+                        isScroll
+                          ? isDark
+                            ? "border-none bg-transparent"
+                            : ""
+                          : isDark
+                          ? "border border-white/30 bg-transparent"
+                          : "bg-white/10 shadow-sm"
+                      }
             `}
         >
-          <li>
-            <a className="font-ovo" href="#top">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="font-ovo" href="#about">
-              About me
-            </a>
-          </li>
-          <li>
-            <a className="font-ovo" href="#projects">
-              Experience
-            </a>
-          </li>
-          <li>
-            <a className="font-ovo" href="#skills">
-              Skills
-            </a>
-          </li>
-        </ul>
+          {["Home", "About me", "Experience", "Skills"].map((item, i) => (
+            <motion.li
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: -20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.4 }}
+            >
+              <a
+                className="font-ovo"
+                href={`#${item.toLowerCase().replace(" ", "")}`}
+              >
+                {item}
+              </a>
+            </motion.li>
+          ))}
+        </motion.ul>
+
         <div className="flex items-center gap-5 text-2xl">
           <button
             className={`text-2xl lg:text-xl cursor-pointer`}
             onClick={() => setIsDark(!isDark)}
           >
-            {isDark ? <PiSunLight /> : <PiMoonLight />}
+            <AnimatePresence mode="wait" initial={false}>
+              {isDark ? (
+                <motion.div
+                  key="sun"
+                  initial={{ opacity: 0, rotate: -45, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 45, scale: 0.5 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <PiSunLight />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="moon"
+                  initial={{ opacity: 0, rotate: 45, scale: 0.5 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: -45, scale: 0.5 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <PiMoonLight />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </button>
 
-          <a
+          <motion.a
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             href="https://www.linkedin.com/in/ln-karan-patel/"
             target="_blank"
             className={`hidden lg:flex items-center gap-1 px-4 py-1.25
-              border border-gray-500 rounded-full text-base
-                ${isDark ? " border border-white/40" : ""}
+                      border border-gray-500 rounded-full text-base
+                      ${isDark ? " border border-white/40" : ""}
               `}
           >
             <SiLinkedin /> Connect <PiArrowUpRightBold className="h-4 " />
-          </a>
+          </motion.a>
 
-          <button
+          <motion.button
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="block text-3xl md:hidden ml-3 cursor-pointer"
             onClick={openMenu}
           >
             <CgMenuRightAlt />
-          </button>
+          </motion.button>
         </div>
 
         {/* ------------------- mobile menu ------------------- */}
@@ -140,12 +179,12 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a className="font-ovo" onClick={closeMenu} href="#about">
+            <a className="font-ovo" onClick={closeMenu} href="#aboutme">
               About me
             </a>
           </li>
           <li>
-            <a className="font-ovo" onClick={closeMenu} href="#projects">
+            <a className="font-ovo" onClick={closeMenu} href="#experience">
               Experience
             </a>
           </li>

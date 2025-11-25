@@ -1,12 +1,13 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "@/components/ThemeProvider";
 import Image from "next/image";
 import ProfilePhoto from "@/assets/profile-photo.webp";
 import { FiDownload } from "react-icons/fi";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import { motion } from "motion/react";
 
 const Header = () => {
-  const { isDark, setIsDark } = useContext(ThemeContext);
+  const { isDark } = useContext(ThemeContext);
 
   const getExperience = () => {
     const start = new Date("2020-10-01");
@@ -28,27 +29,49 @@ const Header = () => {
 
   return (
     <div className="max-w-3xl text-center mx-auto h-screen flex flex-col md:flex-row items-center gap-4 md:gap-20 justify-center">
-      <div>
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <Image
           className="rounded-full sm:w-40 md:w-110"
           src={ProfilePhoto}
           alt=""
           width={170}
         />
-      </div>
+      </motion.div>
       <div>
-        <h3 className="text-xl md:text-2xl mb-3 font-ovo">
+        <motion.h3
+          className="text-xl md:text-2xl mb-3 font-ovo"
+          initial={{ y: -20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           Hi! I'm Karan Patel 👋🏻
-        </h3>
-        <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-[44px] font-ovo">
+        </motion.h3>
+        <motion.h1
+          className="text-3xl sm:text-4xl md:text-4xl lg:text-[44px] font-ovo"
+          initial={{ y: -30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           Backend Developer
-        </h1>
-        <p className="max-w-2xl mx-auto font-ovo">
+        </motion.h1>
+        <motion.p
+          className="max-w-2xl mx-auto font-ovo"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+        >
           I'm a Java backend developer with {getExperience()} years of
           experience in building microservices,and scalable solutions.
-        </p>
+        </motion.p>
         <div className="flex justify-center gap-4 mt-4">
-          <a
+          <motion.a
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
             href="#contact"
             className={`flex items-center gap-2 px-4 py-1
               border rounded-full
@@ -61,8 +84,11 @@ const Header = () => {
           >
             Connect Info
             <IoInformationCircleOutline className="text-xl " />
-          </a>
-          <a
+          </motion.a>
+          <motion.a
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
             href="/resume.pdf"
             download
             className={`flex items-center gap-2 px-4 py-1 
@@ -71,7 +97,7 @@ const Header = () => {
               `}
           >
             Download CV <FiDownload className="h-4 " />
-          </a>
+          </motion.a>
         </div>
       </div>
     </div>
