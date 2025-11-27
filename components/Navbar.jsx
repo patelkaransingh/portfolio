@@ -11,6 +11,7 @@ import { SiLinkedin } from "react-icons/si";
 import { motion, AnimatePresence } from "motion/react";
 
 const Navbar = () => {
+  const navItems = ["Home", "About me", "Experience", "Skills"];
   const { isDark, setIsDark } = useContext(ThemeContext);
   const sideMenuRef = useRef();
   const [isScroll, setScroll] = useState(false);
@@ -86,7 +87,7 @@ const Navbar = () => {
                       }
             `}
         >
-          {["Home", "About me", "Experience", "Skills"].map((item, i) => (
+          {navItems.map((item, i) => (
             <motion.li
               key={i}
               variants={{
@@ -173,26 +174,18 @@ const Navbar = () => {
             <GrClose className="cursor-pointer text-2xl" />
           </div>
 
-          <li>
-            <a className="font-ovo" onClick={closeMenu} href="#home">
-              Home
-            </a>
-          </li>
-          <li>
-            <a className="font-ovo" onClick={closeMenu} href="#aboutme">
-              About me
-            </a>
-          </li>
-          <li>
-            <a className="font-ovo" onClick={closeMenu} href="#experience">
-              Experience
-            </a>
-          </li>
-          <li>
-            <a className="font-ovo" onClick={closeMenu} href="#skills">
-              Skills
-            </a>
-          </li>
+          {navItems.map((item, i) => (
+            <li key={i}>
+              <a
+                className="font-ovo"
+                onClick={closeMenu}
+                href={`#${item.toLowerCase().replace(" ", "")}`}
+              >
+                {item}
+              </a>
+            </li>
+          ))}
+
           <li>
             <a className="font-ovo" onClick={closeMenu} href="#contact">
               Contact info
