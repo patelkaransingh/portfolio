@@ -38,7 +38,7 @@ export const info = [
     title: "Projects",
     description:
       "Worked on 3 large-scale projects: Financial, BOM, and Retail.",
-    link: "#projects",
+    link: "#experience",
   },
   {
     icon: <PiGraduationCapLight />,
